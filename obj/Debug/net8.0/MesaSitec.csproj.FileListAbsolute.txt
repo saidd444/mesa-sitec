@@ -126,3 +126,11 @@ C:\Users\user\Desktop\developer\prueba\MesaSitec\obj\Debug\net8.0\refint\MesaSit
 C:\Users\user\Desktop\developer\prueba\MesaSitec\obj\Debug\net8.0\MesaSitec.pdb
 C:\Users\user\Desktop\developer\prueba\MesaSitec\obj\Debug\net8.0\MesaSitec.genruntimeconfig.cache
 C:\Users\user\Desktop\developer\prueba\MesaSitec\obj\Debug\net8.0\ref\MesaSitec.dll
+C:\Users\user\Desktop\developer\prueba\MesaSitec\obj\Debug\net8.0\MesaSitec.sourcelink.json
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
