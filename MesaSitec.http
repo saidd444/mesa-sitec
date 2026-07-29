@@ -1,0 +1,6 @@
+@MesaSitec_HostAddress = http://localhost:5298
+
+GET {{MesaSitec_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
