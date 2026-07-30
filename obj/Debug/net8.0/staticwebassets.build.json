@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"Rjhx8ZxrXSFVnKdb5U8MccrjP41/2FTJMRzF0FjtzO8=","Source":"MesaSitec","BasePath":"_content/MesaSitec","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "oRpDkH4zPy5FVx1ciaxF35RjnwarOC69Ri4BpYt1KzA=",
+  "Source": "MesaSitec",
+  "BasePath": "_content/MesaSitec",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -3419,19 +3419,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ibane\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ibane\\OneDrive\\Desktop\\trbajo\\Sistec\\mesa-sitec\\MesaSitec.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\developer\\prueba\\MesaSitec\\MesaSitec.csproj",
       "projectName": "MesaSitec",
-      "projectPath": "C:\\Users\\ibane\\OneDrive\\Desktop\\trbajo\\Sistec\\mesa-sitec\\MesaSitec.csproj",
-      "packagesPath": "C:\\Users\\ibane\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ibane\\OneDrive\\Desktop\\trbajo\\Sistec\\mesa-sitec\\obj\\",
+      "projectPath": "C:\\Users\\user\\Desktop\\developer\\prueba\\MesaSitec\\MesaSitec.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\developer\\prueba\\MesaSitec\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ibane\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -3454,8 +3454,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -3503,24 +3502,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.20, 8.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3529,7 +3510,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.423/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

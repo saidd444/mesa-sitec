@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MesaSitec")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bce4155ee04b7e8922ca6900924ec75f96ed9d0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7806789f9bc54f91b770f4ccbb86bac040261da")]
 [assembly: System.Reflection.AssemblyProductAttribute("MesaSitec")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MesaSitec")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
