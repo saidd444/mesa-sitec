@@ -36,7 +36,7 @@ public static class SeedData
         
         //crea el usuario
         var hasher = new PasswordHasher<Usuario>();
-        var passwordHash = hasher.HashPassword(new Usuario(), "Sitect.2026");
+        var passwordHash = hasher.HashPassword(new Usuario(), "Sitec.2026");
 
         var usuariosNorte = new List<Usuario>
         {

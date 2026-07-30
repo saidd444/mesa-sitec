@@ -67,7 +67,7 @@ public class AuthService
         {
             new Claim("sub", usuario.Id.ToString()),
             new Claim("email", usuario.Email),
-            new Claim("TenantId", usuario.TenantId.ToString()),
+            new Claim("tenantId", usuario.TenantId.ToString()),
             new Claim("rol", usuario.Rol.ToString())
         };
                 var token = new JwtSecurityToken(
