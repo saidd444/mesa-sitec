@@ -1,0 +1,16 @@
+import {createRouter, createWebHistory } from 'vue-router'
+import SolicitudesPage from './pages/Solicitudes.vue'
+import LoginPage from './pages/Login.vue'
+
+const routes =[
+    {path: '/', redirect: '/solicitudes'},
+    {path: '/login', component: LoginPage},
+    {path: '/solicitudes', component: SolicitudesPage}
+]
+
+    const router = createRouter({
+        history: createWebHistory(),
+        routes
+    })
+
+    export default router
