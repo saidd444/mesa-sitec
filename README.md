@@ -1,16 +1,16 @@
 ## Requisitos previos
 
-- **.NET 8** — [descargar]
-- **Node.js 18+** — [descargar]
-- **SQLite** — incluido en .NET
+- **.NET 8** (descargar)
+- **Node.js 18+** (descargar)
+- **SQLite**  incluido en .NET
  - Yo use Visual Studio Code
 
 --------------------------------1. Backend .NET-------------------------------- 
 
  Comandos
-    cd MesaSitec
-    dotnet build
-    dotnet run
+    - cd MesaSitec
+    - dotnet build
+    - dotnet run
 
 Acceso:
 - API: http://localhost:5298
@@ -29,8 +29,7 @@ Comandos
     Acceso:
 - Frontend: `http://localhost:5173`
 
--------------------------------- Credenciales de prueba -------------------------------- 
-
+ Credenciales de prueba 
     Email: admin@norte.test
     Contraseña: Sitec.2026
     Rol: Admin
