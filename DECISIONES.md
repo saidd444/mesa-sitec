@@ -12,13 +12,13 @@ Los modelos tienen `PasswordHash` y campos internos que el frontend no debería 
 
 ---
 
-## 3. Máquina de estados con switch en lugar de if/else
+3. Máquina de estados con switch en lugar de if/else
 
 Pude usar if/else o una librería. Con switch ves todas las transiciones válidas (Nueva → Asignada, etc.) en un lugar. Es más mantenible.
 
 ---
 
-## Qué hice con IA y qué hice yo
+ Qué hice con IA y qué hice yo
 
 **Claude**
 - Cómo estructurar un proyecto .NET 8 con controllers
@@ -26,19 +26,21 @@ Pude usar if/else o una librería. Con switch ves todas las transiciones válida
 - Templates básicos de DTOs y modelos
 - Cómo armar un proyecto Vue 3 con router y Pinia
 - Ejemplos de cómo conectar un frontend a una API
+ - Frontend (mayormente IA):** No sé nada de Vue. Claude generó la estructura de componentes, el router, Pinia, los formularios.
 
 **Yo**
-- Typos en los DTOs (`Titutlo` en lugar de `Titulo`) — me costó encontrarlo
+- Typos en los DTOs por ejemplo (`Titutlo` en lugar de `Titulo`) — me costó encontrarlo
 - El problema de los claims en JWT (por qué `/me` devolvía 401)
 - Entender por qué no se comparaban bien los Guids como strings
 - Todos los errores de compilación
 - Conectar el apiClient para inyectar el token automáticamente
+- Agregué los `data-testid`, conecté con la API, debuggué errores de integración y adapté componentes.
 
 En resumen: Claude me enseñó la sintaxis y estructura de .NET y Vue porque mi lenguaje principal es Java. Yo construí la lógica, entendí cómo funciona cada cosa, y arreglé todos los errores que salieron.
 
 ---
 
-## Dónde me atasqué
+ Dónde me atasqué
 
 **El problema:** El endpoint `/me` devolvía 401 Unauthorized aunque mandaba un JWT válido.
 

@@ -1,65 +1,87 @@
-# MesaSitec - sistema de mesa de servicio multitenant
+## Requisitos previos
 
-sistema SaaS de gestion de solicitudes de servicio
-usando .net 8 y frontend vue3
-# Stack
+- **.NET 8** — [descargar]
+- **Node.js 18+** — [descargar]
+- **SQLite** — incluido en .NET
+ - Yo use Visual Studio Code
 
-- backend : .Net 8, EF Core, Sqlite, jwt
-- frontend : vue 3, TypeScript, vite, pinia
-- test: Xunit
+--------------------------------1. Backend .NET-------------------------------- 
 
+ Comandos
+    cd MesaSitec
+    dotnet build
+    dotnet run
 
-## ------- LEVANTAR EL PROJECTO ----------
-## backend
-```bash
-cd MesaSitec
-dotnet build
-dotnet run
+Acceso:
+- API: http://localhost:5298
+- Swagger: http://localhost:5298/swagger
+- Health: GET http://localhost:5298/api/v1/health
 
-Servidor en 'http://localhost:5298'
-Swagger en 'http://localhost:5298/swagger'
+--------------------------------2. Frontend -------------------------------- 
 
-## credenciales del test 
+En otra terminal:
 
-Email: admin@norte.test
-Contraseña: Sitec.2026
+Comandos
+    cd MesaSitec-Frontend
+    npm install
+    npm run dev
 
-### Base de daots
+    Acceso:
+- Frontend: `http://localhost:5173`
 
-SQlite automatica, datps semilla se crean
+-------------------------------- Credenciales de prueba -------------------------------- 
 
-## endpoints complteados
+    Email: admin@norte.test
+    Contraseña: Sitec.2026
+    Rol: Admin
 
- POST /auth/login — Autenticación JWT
- GET /me — Datos del usuario autenticado
- GET /categorias — Listado de categorías
- GET /solicitudes — Listado paginado, filtrado, búsqueda
- POST /Solictudes - Crear solicitudes
- GET /solicitudes{id} - detalle de solicitud
- PUT /solicitudes{id} - editar solicitud
- POST /solicitudes/{id}/transiciones - cambiar estado (maquina de estados)
+    agente1@norte.test (Agente)
+    user1@norte.test (Solicitante)
+    admin@sur.test (Admin 2)
 
+-------------------------------- IMPLEMENTADO --------------------------------
 
- ## Arquitectura
+- Backend: 9 endpoints (login, me, categorías, solicitudes CRUD, transiciones, health)
+- JWT con mapeo de claims correcto
+- Multitenant con filtrado por tenant en TODAS las queries
+- Máquina de estados (Nueva → Asignada → EnProceso → Resuelta → Cerrada/Cancelada)
+- Cálculo automático de SLA según prioridad y categoría
+- Frontend: Login, Listado (con 3 estados), Detalle, Crear/Editar solicitudes
+- Navbar con logout
+- data-testid en todos los elementos
 
-- Models: Entidades del dominio
-- Services: Lógica de negocio (AuthService)
-- Controllers: Endpoints API
-- Data: DbContext, migraciones
-- Dtos: Objetos de transferencia
+-------------------------------- NO IMPLEMENTADO --------------------------------
 
-**Seguridad:**
-- JWT con MapInboundClaims = false (mantiene claims originales)
-- Filtro por TenantId en TODO query (RN-01: aislamiento multitenant)
-- PasswordHasher de ASP.NET Core (bcrypt)
+- Tests unitarios (xUnit) — Backend funcional pero sin suite completa
+- Modales de acciones (asignar, resolver, cerrar) — Frontend muestra botones pero sin modal
+- Buttons de acción dinámica según estado/rol — Estructura lista, lógica parcial
+- Paginación dinámica — Hardcodeada a página 1
 
-## Reglas de negocio implementadas
+-------------------------------- Estructura --------------------------------
 
-- RN-01: Aislamiento de datos por tenant
-- RN-02: Máquina de estados para solicitudes
-- RN-04: Cálculo automático de SLA según prioridad y categoría
-- RN-07: Código de solicitud secuencial por tenant/año
+├─ MesaSitec/ (backend .NET 8)
+│ ├─ Controllers/
+│ ├─ Models/
+│ ├─ Dtos/
+│ ├─ Services/
+│ ├─ Data/
+│ └─ Program.cs
+├─ MesaSitec-Frontend/ (frontend Vue 3)
+│ ├─ src/
+│ │ ├─ pages/
+│ │ ├─ components/
+│ │ ├─ stores/
+│ │ ├─ services/
+│ │ ├─ types/
+│ │ └─ router.ts
+│ └─ index.html
+├─ README.md
+└─ DECISIONES.md
 
-##Notas
-- Backend 100% funcional, robusto
-- Todas las decisiones documentadas en DECISIONES.md
+-------------------------------- Proximo --------------------------------
+
+1. Completar suite de tests unitarios (8+ pruebas)
+2. Implementar modales para acciones (resolver, cancelar, etc.)
+3. Validación más estricta en frontend (FormValidation)
+4. Reorganizar con estructura `backend/` y `frontend/` en carpetas separadas
+5. Docker Compose para levantar todo con un comando
