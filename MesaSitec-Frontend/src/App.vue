@@ -1,6 +1,13 @@
 <template>
-  <router-view />
+  <div>
+    <Navbar v-if="auth.token" />
+    <router-view />
+  </div>
 </template>
 
 <script setup lang="ts">
+import Navbar from './components/Navbar.vue'
+import { useAuthStore } from './stores/authStore'
+
+const auth = useAuthStore()
 </script>

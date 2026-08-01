@@ -8,20 +8,23 @@
           v-model="email"
           type="email"
           placeholder="Email"
+          data-testid="login-email"
           class="w-full p-2 border mb-4"
         />
         <input
           v-model="password"
           type="password"
           placeholder="Contraseña"
+          data-testid="login-password"
           class="w-full p-2 border mb-4"
         />
         
-        <div v-if="error" class="text-red-500 mb-4">{{ error }}</div>
+        <div v-if="error" data-testid="login-error" class="text-red-500 mb-4">{{ error }}</div>
         
         <button
           type="submit"
           :disabled="loading"
+          data-testid="login-submit"
           class="w-full bg-blue-500 text-white p-2 rounded"
         >
           {{ loading ? 'Cargando...' : 'Entrar' }}
@@ -50,7 +53,7 @@ const handleLogin = async () => {
   error.value = ''
   
   try {
-    const res = await apiClient.login(email.value, password.value)
+    const res = await apiClient.login({ email: email.value, password: password.value })
     auth.setToken(res.data.accessToken, res.data.usuario)
     router.push('/solicitudes')
   } catch (err) {

@@ -1,24 +1,66 @@
-Decicion 1 
-Elegí JWT porque el enunciado lo pedía, pero también porque es stateless. Significa que el servidor no guarda sesiones. Cada token que devuelvo tiene toda la información: quién eres, qué rol tienes, de qué empresa. Es más simple que guardar sesiones en la BD, especialmente para multitenant.
+# Decisiones Técnicas
 
-Decicion 2 [Devolver DTOs en lugar de modelos]
-Los modelos tienen campos que no quiero que vea el frontend: PasswordHash, datos internos. Entonces creé DTOs: son objetos que solo tienen lo que el frontend necesita. Es más seguro y el cliente no recibe basura.
+ 1. JWT en lugar de sesiones guardadas en BD
 
-Decision 3 [La máquina de estados con switch]
-El enunciado pedía una máquina de estados para cambiar el estado de las solicitudes. Pude hacerlo con if/else, pero es más confuso. Con un switch, veo todas las transiciones validas faciles. Nueva > Asignada, Nueva > Cancelada, etc. Es más claro de mantener.
+Usé JWT porque es stateless: el servidor no guarda nada, solo valida el token. Para multitenant es más simple que sincronizar sesiones entre tablas. El token contiene quién eres, tu empresa y tu rol.
 
-Sobre IA
+---
 
-Mi lenguaje principal es Java (Intermedio), no C#. Usé Claude para aprender la sintaxis de .NET. Pero todos los errores los debuggué yo mismo. Cuando algo no compilaba, leía el error, entendía qué pasaba, y lo corregía. IA me enseñó cómo escribir en C#, pero la lógica y las correcciones fueron mías.
+2. Devolver DTOs en lugar de los modelos de EF directamente
 
-Lo realmente dificil para mi fue
+Los modelos tienen `PasswordHash` y campos internos que el frontend no debería ver. Los DTOs devuelven solo lo necesario. Es más seguro y desacopla el frontend del modelo.
 
-Me trabe en el endpoint /me. El JWT llegaba correctamente, pero no encontraba los datos del usuario. Agregué prints en la terminal para ver qué información tenía el JWT. Descubrí que .NET estaba convirtiendo mi claim 'sub' en una URL extraña. Busqué en Stack Overflow, encontré que necesitaba agregar MapInboundClaims = false, y funcionó. Ese fue un buen aprendizaje sobre cómo .NET maneja los tokens.
+---
 
-Lo que haría diferente con más tiempo
+## 3. Máquina de estados con switch en lugar de if/else
 
-1. Tests unitarios completos (ahora están parciales)
-2. Frontend Vue 3 con todas las vistas
-3. Validaciones más estrictas en DTOs (FluentValidation)
-4. Logging con Serilog
-5. Docker para ambiente consistente
+Pude usar if/else o una librería. Con switch ves todas las transiciones válidas (Nueva → Asignada, etc.) en un lugar. Es más mantenible.
+
+---
+
+## Qué hice con IA y qué hice yo
+
+**Claude**
+- Cómo estructurar un proyecto .NET 8 con controllers
+- Cómo usar EF Core y migraciones
+- Templates básicos de DTOs y modelos
+- Cómo armar un proyecto Vue 3 con router y Pinia
+- Ejemplos de cómo conectar un frontend a una API
+
+**Yo**
+- Typos en los DTOs (`Titutlo` en lugar de `Titulo`) — me costó encontrarlo
+- El problema de los claims en JWT (por qué `/me` devolvía 401)
+- Entender por qué no se comparaban bien los Guids como strings
+- Todos los errores de compilación
+- Conectar el apiClient para inyectar el token automáticamente
+
+En resumen: Claude me enseñó la sintaxis y estructura de .NET y Vue porque mi lenguaje principal es Java. Yo construí la lógica, entendí cómo funciona cada cosa, y arreglé todos los errores que salieron.
+
+---
+
+## Dónde me atasqué
+
+**El problema:** El endpoint `/me` devolvía 401 Unauthorized aunque mandaba un JWT válido.
+
+**Lo que hice:** Agregué un `Console.WriteLine()` para ver qué claims llegaban al controller. Descubrí que .NET había convertido mi claim `"sub"` en una URL XML larga como `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`.
+
+Cuando intentaba hacer `User.FindFirst("sub")`, no lo encontraba porque ahora se llamaba de otra forma.
+
+**La solución:** Encontré en Stack Overflow que hay que agregar MapInboundClaims = false en la configuración de JWT.
+
+options.MapInboundClaims = false;
+
+*Qué aprendí:* NET remapea automáticamente los claims por compatibilidad con estándares viejos. Se pierden horas debuggeando. Fue un buen reminder de que los frameworks hacen cosas implícitas.
+
+---
+
+## Si tuviera una semana más
+
+- Escribir los 8 tests unitarios en xUnit que pide el enunciado
+- Implementar los modales para resolver, cancelar y asignar solicitudes (ahora solo tengo los botones)
+- Hacer que los botones de acción se muestren o no según el rol y estado (RN-02 y RN-03)
+- Paginación real con navegación entre páginas
+- Validaciones más estrictas usando FluentValidation
+- Logging con Serilog para trackear errores en producción
+- Docker Compose para que todo levante sin instalar nada
+- Reorganizar la estructura en carpetas `backend/` y `frontend/` separadas

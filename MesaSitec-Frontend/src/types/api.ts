@@ -1,3 +1,13 @@
+export interface Categoria {
+  id: string
+  nombre: string
+}
+
+export interface AgenteResumen {
+  id: string
+  nombre: string
+}
+
 export interface Usuario {
   id: string
   email: string
@@ -17,10 +27,11 @@ export interface Solicitud {
   id: string
   codigo: string
   titulo: string
+  descripcion: string
   estado: 'Nueva' | 'Asignada' | 'EnProceso' | 'Resuelta' | 'Cerrada' | 'Cancelada'
   prioridad: 'Baja' | 'Media' | 'Alta' | 'Critica'
-  categoria: { id: string; nombre: string }
-  agente: { id: string; nombre: string } | null
+  categoria: Categoria
+  agente: AgenteResumen | null
   fechaCreacion: string
   fechaLimiteSla: string
   vencida: boolean

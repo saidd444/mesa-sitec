@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using MesaSitec.Data;
 using MesaSitec.Dtos;
 using MesaSitec.Models;
+using Microsoft.AspNetCore.Authorization;
 
 [ApiController]
 [Route("api/v1")]
@@ -341,6 +342,7 @@ public class SolicitudController : ControllerBase
             Id = s.Id,
             Codigo = s.Codigo,
             Titulo = s.Titulo,
+            Descripcion = s.Descripcion,
             Estado = s.Estado.ToString(),
             Prioridad = s.Prioridad.ToString(),
             Categoria = new CategoriaResumenDto

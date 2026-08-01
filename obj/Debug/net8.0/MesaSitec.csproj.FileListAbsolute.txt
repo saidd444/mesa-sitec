@@ -278,3 +278,10 @@ C:\Users\user\Desktop\developer\prueba\MesaSitec\obj\Debug\net8.0\refint\MesaSit
 C:\Users\user\Desktop\developer\prueba\MesaSitec\obj\Debug\net8.0\MesaSitec.pdb
 C:\Users\user\Desktop\developer\prueba\MesaSitec\obj\Debug\net8.0\MesaSitec.genruntimeconfig.cache
 C:\Users\user\Desktop\developer\prueba\MesaSitec\obj\Debug\net8.0\ref\MesaSitec.dll
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\MesaSitec-Frontend\package-lock.json
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\MesaSitec-Frontend\package.json
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\MesaSitec-Frontend\tsconfig.app.json
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\MesaSitec-Frontend\tsconfig.json
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\MesaSitec-Frontend\tsconfig.node.json
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\package-lock.json
+C:\Users\user\Desktop\developer\prueba\MesaSitec\bin\Debug\net8.0\package.json
